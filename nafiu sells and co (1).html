@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nafiu Luxury Collection</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Georgia', serif;
+    }
+    
+    body {
+      background-color: #0f0f0f;
+      color: #e8d4c1;
+      line-height: 1.7;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(135deg, #440c0c, #2a0505);
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid #d4af37;
+    }
+    
+    header h1 {
+      font-size: 3.5em;
+      margin: 0;
+      letter-spacing: 4px;
+      color: #eec78c;
+      text-transform: uppercase;
+    }
+    
+    header h2 {
+      font-size: 1.5em;
+      font-weight: normal;
+      margin-top: 10px;
+      color: #d4b48b;
+      font-style: italic;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: #1a0505;
+      padding: 15px 0;
+      text-align: center;
+      border-bottom: 1px solid #d4af37;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    nav ul li {
+      margin: 0 15px;
+    }
+    
+    nav ul li a {
+      color: #eec78c;
+      text-decoration: none;
+      font-size: 1.1em;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      background-color: rgba(212, 175, 55, 0.2);
+      color: #ffd700;
+    }
+    
+    /* Content Sections */
+    .content {
+      padding: 30px;
+      background-color: #2a0707;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+      margin-bottom: 30px;
+    }
+    
+    .image-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      border-radius: 12px;
+      border: 3px solid #530f0f;
+      transition: transform 0.5s ease;
+    }
+    
+    .image-container img:hover {
+      transform: scale(1.05);
+    }
+    
+    .description {
+      margin-top: 30px;
+      font-size: 1.15em;
+      text-align: center;
+    }
+    
+    /* Features */
+    .features-title {
+      margin-top: 40px;
+      font-size: 1.6em;
+      color: #eec78c;
+      border-bottom: 2px solid #d4af37;
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+    
+    .features {
+      margin-top: 20px;
+      padding-left: 20px;
+      list-style-type: square;
+    }
+    
+    .features li {
+      margin-bottom: 12px;
+      font-size: 1.05em;
+      color: #f0e1ce;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #d4af37, #b8860b);
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn:hover {
+      background: linear-gradient(135deg, #ffd700, #daa520);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+      transform: translateY(-3px);
+    }
+    
+    /* Form */
+    form {
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #d4af37;
+      border-radius: 6px;
+      background: #1a1a1a;
+      color: #fff;
+      margin-right: 10px;
+      width: 250px;
+    }
+    
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    table td {
+      padding: 12px;
+      border: 1px solid #d4af37;
+      font-size: 1.1em;
+      color: #e8d4c1;
+    }
+    
+    /* Requirements Page */
+    .requirements {
+      margin: 40px 0;
+    }
+    
+    .requirements ol {
+      list-style: none;
+      counter-reset: item;
+      padding: 0;
+    }
+    
+    .requirements ol li {
+      counter-increment: item;
+      margin-bottom: 25px;
+      padding: 20px;
+      background: rgba(212, 175, 55, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid #d4af37;
+      font-size: 1.1em;
+    }
+    
+    .requirements ol li:before {
+      content: counter(item, lower-roman) ".";
+      color: #d4af37;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-right: 15px;
+    }
+    
+    /* Payment Form */
+    .card-form-container {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 35px;
+      width: 380px;
+      margin: 0 auto;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    .card-form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #f8f8f8;
+      font-size: 22px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .input-group {
+      margin-bottom: 18px;
+    }
+    
+    .input-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #ddd;
+      font-size: 13px;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      font-size: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control::placeholder {
+      color: #aaa;
+    }
+    
+    .form-control:focus {
+      border-color: #ffd700;
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+      outline: none;
+      transform: scale(1.02);
+    }
+    
+    .input-group-inline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    
+    /* Collection Page */
+    .collection {
+      margin-bottom: 50px;
+    }
+    
+    .item-title {
+      font-size: 1.8rem;
+      color: #eec78c;
+      margin-bottom: 15px;
+      display: block;
+    }
+    
+    .item-description {
+      color: #d4b48b;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9em;
+      color: #ce7d32;
+      border-top: 1px solid #d4af37;
+      margin-top: 50px;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+      
+      nav ul {
+        flex-direction: column;
+      }
+      
+      nav ul li {
+        margin: 5px 0;
+      }
+      
+      .input-group-inline {
+        flex-direction: column;
+      }
+      
+      .card-form-container {
+        width: 100%;
+        padding: 20px;
+      }
+      
+      input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    
+    /* Page Sections */
+    .page {
+      display: block;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Nafiu</h1>
+    <h2>Apretas la Rose</h2>
+  </header>
+  
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#automobile">Automobile</a></li>
+      <li><a href="#watch">Watch Collection</a></li>
+      <li><a href="#requirements">How to Get One</a></li>
+      <li><a href="#payment">Payment</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <!-- Home Page -->
+    <div id="home" class="page">
+      <div class="content">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Luxury Car">
+        </div>
+        
+        <div class="description">
+          <p>
+            Welcome to <strong>Nafiu Luxury Collections</strong>, where excellence meets elegance. 
+            Discover our exclusive range of automobiles and timepieces crafted for those who appreciate 
+            the finer things in life.
+          </p>
+        </div>
+        
+        <div style="text-align: center;">
+          <a href="#automobile" class="btn">Explore Automobiles</a>
+          <a href="#watch" class="btn">Explore Watches</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Automobile Page -->
+    <div id="automobile" class="page">
+      <div class="content">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1549399542-7e82138d43aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Nafiu Golden La Rose">
+        </div>
+
+        <div class="description">
+          <p>
+            The <strong>Nafiu Golden La Rose</strong> is not just a car — it's a handcrafted masterpiece inspired by timeless elegance and unmatched engineering.  
+            Each detail reflects the bold ambition of excellence and class, bringing you a limited-edition luxury experience that redefines prestige on wheels.
+          </p>
+        </div>
+
+        <h3 class="features-title">Key Features</h3>
+        <ul class="features">
+          <li>Hand-built luxury coachwork inspired by black rose petals</li>
+          <li>Pure gold inlay trim accents with midnight gloss finish</li>
+          <li>Twin-turbocharged V12 engine with whisper-quiet ride</li>
+          <li>Bespoke immersive 18-speaker audio system</li>
+          <li>Custom interior with rose-inspired ambient lighting</li>
+          <li>Hand-stitched leather seating with golden rose embroidery</li>
+        </ul>
+
+        <table>
+          <tr>
+            <td>Purchase one and build an exclusive collection</td>
+          </tr>
+        </table>
+
+        <div style="text-align: center;">
+          <a href="#requirements" class="btn">Reserve Yours</a>
+          <a href="#watch" class="btn">Visit Nafiu Watch Co.</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Watch Collection Page -->
+    <div id="watch" class="page">
+      <div class="content">
+        <h1 style="text-align: center; color: #eec78c; margin-bottom: 30px;">Exquisite Collection</h1>
+        <p class="item-description" style="text-align: center;">nafiu automobile and watch.co.html</p>
+        
+        <div class="collection">
+          <ol type="i">
+            <li>
+              <span class="item-title">Nafiu Arcade 5980</span>
+              <p class="item-description">A masterpiece of automotive engineering with unparalleled performance and elegance.</p>
+              <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Nafiu Arcade 5980">
+              </div>
+            </li>
+            <li> 
+              <span class="item-title">Patek Rosegold 1990 collaboration with nafiu-automobile-and-watch</span>
+              <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1094&q=80" alt="Patek Rosegold 1990">
+              </div>
+            </li>
+            <li> 
+              <span class="item-title">Hermes & Nafiu collaboration</span>
+              <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Hermes & Nafiu collaboration">
+              </div>
+            </li>
+          </ol>
+        </div>
+        
+        <div style="text-align: center;">
+          <a href="#requirements" class="btn">Reserve Yours</a>
+          <a href="#automobile" class="btn">View Automobiles</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Requirements Page -->
+    <div id="requirements" class="page">
+      <div class="content">
+        <h1 style="text-align: center; color: #eec78c; margin-bottom: 30px;">How to get one?</h1>
+        
+        <div class="requirements">
+          <ol type="i">
+            <li>You must have at least 20 cars in your collection</li>
+            <li>Every year you must invest at least $50,000 in our company</li>
+            <li>You are not allowed to customize until you get our company permit</li>
+            <li>Each 2 years you should get our car maintenance</li>
+          </ol>
+        </div>
+        
+        <div style="text-align: center;">
+          <a href="#payment" class="btn">Reserve Yours</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Payment Page -->
+    <div id="payment" class="page">
+      <div class="content">
+        <h1 style="text-align: center; color: #eec78c; margin-bottom: 30px;">Complete Your Purchase</h1>
+        
+        <div class="card-form-container">
+          <h2>Luxury Payment</h2>
+          <form id="payment-form">
+            <div class="input-group">
+              <label for="card-number">Card Number</label>
+              <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" required>
+            </div>
+            <div class="input-group">
+              <label for="card-name">Cardholder Name</label>
+              <input type="text" id="card-name" class="form-control" placeholder="Full name on card" required>
+            </div>
+            <div class="input-group-inline">
+              <div class="input-group">
+                <label for="card-expiry">Expiration Date</label>
+                <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY" maxlength="5" required>
+              </div>
+              <div class="input-group">
+                <label for="card-cvc">CVV</label>
+                <input type="text" id="card-cvc" class="form-control" placeholder="123" maxlength="4" required>
+              </div>
+            </div>
+            <button type="submit" class="btn">Pay Now</button>
+          </form>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="#automobile" class="btn">Back to Automobiles</a>
+          <a href="#watch" class="btn">Back to Watches</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Nafiu Motors. Crafted for Legends.
+  </footer>
+</body>
+</html>
